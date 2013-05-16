@@ -1,0 +1,156 @@
+#####
+# My FVWM config (version 2.5.27 + Patchset)
+# Last modified : 2010-02-12
+####################
+
+
+
+
+####
+# Environnement variables
+####################
+
+# Images location
+SetEnv img $[FVWM_USERDIR]/images
+ImagePath $[img]:$[img]/deco:$[img]/icons/:$[img]/icons/16x16/:+
+SetEnv wallpapers_dir $[HOME]/wallpapers
+
+# Prefered applications
+SetEnv myterm urxvt
+SetEnv mytermexec '$[myterm] -e '
+#SetEnv myeditor gvim
+SetEnv myeditor '$[mytermexec] vim'
+SetEnv myssh '$[mytermexec] ssh'
+
+# Number of desks
+SetEnv fvwm_numdesk 2
+
+# Themes
+SetEnv fvwm_themes $[FVWM_USERDIR]/themes/
+PipeRead 'echo SetEnv fvwm_current_theme \\\'$[fvwm_themes]/$$(cat $[FVWM_USERDIR]/current_theme)/\\\''
+
+# Scripts
+SetEnv fvwm_scripts $[FVWM_USERDIR]/scripts/
+
+# Temp dir
+SetEnv fvwm_temp $[FVWM_USERDIR]/tmp/
+
+# GTK+ look in OpenOffice.org
+SetEnv OOO_FORCE_DESKTOP gnome
+
+# Speed-up Firefox
+# SetEnv MOZ_DISABLE_PANGO 1
+# SetEnv FLASH_GTK_LIBRARY libgtk-x11-2.0.so.0
+
+
+####
+# Global parameters
+####################
+
+Emulate MWM
+HideGeometryWindow Never
+EdgeScroll 0 0 wrap
+#EdgeResistance 50 8    # DEPRECATE
+EdgeResistance 50
+Style * EdgeMoveDelay 50
+Style * EdgeMoveResistance 8
+
+EdgeThickness 1
+OpaqueMoveSize unlimited
+#SnapAttraction 4 SameType Screen       # DEPRECATE
+Style * SnapAttraction 4 SameType Screen
+
+IgnoreModifiers L25
+ColormapFocus FollowsFocus
+SetAnimation 20 0 0.01 0.03 0.06 0.12 0.25 0.5 0.75 0.88 0.94 0.97 0.99 1.0
+
+CursorStyle root left_ptr
+
+DesktopSize 4x3
+EWMHNumberOfDesktops $[fvwm_numdesk]
+DesktopName 0 Main
+DesktopName 1 Second
+#DesktopName 2 Third
+#DesktopName 3 Fourth
+
+
+
+
+####
+# Global style
+####################
+Style * MiniIcon beastie.png
+Style * FPEnterToFocus, !FPLeaveToUnfocus
+Style * FPClickToFocus, FPClickDecorToFocus, FPClickIconToFocus
+Style * FPFocusByProgram, FPPassFocusClick, FPSortWindowlistByFocus
+Style * FPClickRaisesFocused, !FPClickDecorRaisesFocused
+Style * FPClickIconRaisesFocused, FPPassRaiseClick
+Style * FPIgnoreRaiseClickMotion
+Style * FPGrabFocus, FPReleaseFocus
+Style * FPGrabFocusTransient, FPReleaseFocusTransient
+Style * LowerTransient, RaiseTransient, StackTransientParent
+Style * HintOverride, MwmDecor, MwmFunctions, DecorateTransient
+Style * WindowShadeSteps 0, WindowShadeShrinks, ResizeOpaque
+Style * TileCascadePlacement
+Style * EWMHUseStackingOrderHints, EWMHUseStrutHints, EWMHUseStateHints
+Style * BorderWidth 1, Handles, FluxboxHandles, HandleWidth 5, CornerWidth 20
+Style * !StickyStippledTitle, !StickyStippledIconTitle
+Style * Colorset 10, HilightColorset 11
+Style * IndexedWindowName, IndexedIconName
+#Style * RoundedCorners, SlightlyRoundedCorners
+Style * Font "StringEncoding=UTF-8:xft:DejaVu Sans:pixelsize=11:style=Book:rgba=rgb:minspace=true:antialias=True"
+Style * NoIconTitle
+Style * IconBackgroundRelief 0, IconBackgroundPadding 0
+#Style * IconTitleColorset 12, HilightIconTitleColorset 13, IconTitleRelief 0
+Style * Iconbox 8 8 8 -32, IconGrid 16 16, IconFill top left
+
+# State 1 = has title, State 2 = has borders
+Style * State 1, State 2
+
+
+
+DefaultFont "StringEncoding=UTF-8:xft:DejaVu Sans:pixelsize=11:style=Book:rgba=rgb:minspace=true:antialias=True"
+DefaultColorset 11
+
+EwmhBaseStruts 0 0 0 20
+
+
+MenuStyle * Font "StringEncoding=UTF-8:xft:DejaVu Sans:pixelsize=11:style=Book:rgba=rgb:minspace=true:antialias=True:encoding=iso10646-1"
+MenuStyle * TitleFont "StringEncoding=UTF-8:xft:DejaVu Sans:pixelsize=11:style=Bold:rgba=rgb:minspace=true:antialias=True:encoding=iso10646-1"
+MenuStyle * MenuColorset 0, ActiveColorset 1
+MenuStyle * Hilight3DOff, BorderWidth 1, HilightBack, ActiveFore
+MenuStyle * TrianglesSolid, TrianglesUseFore, TitleUnderlines1
+MenuStyle * FlatSeparators, SeparatorsShort
+MenuStyle * VerticalItemSpacing 2 2, VerticalTitleSpacing 2 2
+MenuStyle * ItemFormat "%s%|%5.i%5.5l%5.5c%5.5r%.5>%|"
+MenuStyle * TitleWarpOff, Animation
+MenuStyle * PopupDelayed, PopupDelay 100, PopdownImmediately, PopupOffset 0 100
+
+
+
+
+####
+# Extern configuration
+####################
+
+# Modules
+Read $./event.fvwm2rc
+Read $./ident.fvwm2rc
+Read $./pager.fvwm2rc
+Read $./panel.fvwm2rc
+
+## Menus
+Read $./menus.fvwm2rc
+
+## Global keybindings
+Read $./keys.fvwm2rc
+
+# Functions
+Read $./functions.fvwm2rc
+
+## Last used theme
+Read '$[fvwm_current_theme]/theme.fvwm2rc' quiet
+
+# Windows specific styles
+Read $./styles.fvwm2rc
+

@@ -1,0 +1,114 @@
+####
+# Keyboard and mouse bindings
+####################
+
+Mouse 1         R A   Menu Light
+Mouse 3         R A   Menu Main
+Mouse 3         I A   Menu WindowMenu
+Mouse 3         TFS A   Menu WindowMenu
+Mouse 1         1 A   Menu WindowMenu
+Mouse 2         1 A   StickFunc
+Mouse 1         T A   IconifyOrMoveFunc
+Mouse 4         T A   WindowShade True
+Mouse 5         T A   WindowShade False
+Mouse 2         T A   CloseFunc
+Mouse 1         2 A   CloseFunc
+Mouse 1         4 A   MaximizeFunc
+Mouse 3         4 A   HoriMaximizeFunc
+Mouse 2         4 A   VertMaximizeFunc
+Mouse 1         6 A   ThumbnailFunc
+Mouse 1         3 A   OnTopFunc
+Mouse 1         5 A   OnBottomFunc
+Mouse 1         W 4   MoveFunc
+Mouse 3         W 4   ResizeFunc
+Mouse 1         I A   IconFunc
+
+Key F1          A 4   Menu Main
+Key F1          A S4  Menu Light
+Key F2          A 4   Pick Menu WindowMenu
+Key F3          A 4   Pick Maximize
+Key F4          A 4   Pick Close
+Key F5          A 4   Pick WindowShade
+Key F6          A 4   Pick Thumbnail
+Key F6          A S4  All (AcceptsFocus CurrentPage !Iconic !Shaded) Thumbnail
+Key F7          A 4   Pick CenterWindow
+Key F8          A 4   Pick Move
+Key F8          A S4  Pick Resize Direction SE warptoborder fixeddirection
+Key F12         A 4   Module FvwmConsole -terminal $[myterm]
+Key Tab         A M   WindowList Root c c NoGeometry, NoNumInDeskTitle, \
+                        TitleForAllDesks, NoCurrentDeskTitle, NoHotKeys, \
+                        MaxLabelWidth 100
+
+#Key oe		A 4   GotoDeskAndPage prev
+Key ampersand   A 4   GotoDeskAndPage 0 0 0
+#Key eacute      A 4   GotoDeskAndPage 0 1 0
+Key quotedbl    A 4   GotoDeskAndPage 0 2 0
+Key apostrophe  A 4   GotoDeskAndPage 0 3 0
+Key parenleft   A 4   GotoDeskAndPage 0 0 1
+Key minus       A 4   GotoDeskAndPage 0 1 1
+#Key egrave      A 4   GotoDeskAndPage 0 2 1
+Key underscore  A 4   GotoDeskAndPage 0 3 1
+#Key ccedilla    A 4   GotoDeskAndPage 0 0 2
+#Key agrave      A 4   GotoDeskAndPage 0 1 2
+Key parenright  A 4   GotoDeskAndPage 0 2 2
+Key equal       A 4   GotoDeskAndPage 0 3 2
+Key ampersand   A S4  GotoDeskAndPage 1 0 0
+#Key eacute      A S4  GotoDeskAndPage 1 1 0
+Key quotedbl    A S4  GotoDeskAndPage 1 2 0
+Key apostrophe  A S4  GotoDeskAndPage 1 3 0
+Key parenleft   A S4  GotoDeskAndPage 1 0 1
+Key minus       A S4  GotoDeskAndPage 1 1 1
+#Key egrave      A S4  GotoDeskAndPage 1 2 1
+Key underscore  A S4  GotoDeskAndPage 1 3 1
+#Key ccedilla    A S4  GotoDeskAndPage 1 0 2
+#Key agrave      A S4  GotoDeskAndPage 1 1 2
+Key parenright  A S4  GotoDeskAndPage 1 2 2
+Key equal       A S4  GotoDeskAndPage 1 3 2
+
+Key Left        A C4  GotoPage wrapx -1p 0p
+Key Right       A C4  GotoPage wrapx +1p 0p
+Key Up          A C4  GotoPage wrapy 0p -1p
+Key Down        A C4  GotoPage wrapy 0p +1p
+
+Key a           A 4  GotoPage wrapx -1p 0p
+Key d           A 4  GotoPage wrapx +1p 0p
+Key w           A 4  GotoPage wrapy 0p -1p
+Key s           A 4  GotoPage wrapy 0p +1p
+
+
+Key Left        A SC4 MoveAndGoToPage wrapx -1p 0p
+Key Right       A SC4 MoveAndGoToPage wrapx +1p 0p
+Key Up          A SC4 MoveAndGoToPage wrapy 0p -1p
+Key Down        A SC4 MoveAndGoToPage wrapy 0p +1p
+Key ampersand   A C4  GotoDesk 0 0
+#Key eacute      A C4  GotoDesk 0 1
+Key ampersand   A SC4 MoveAndGoToDesk 0 0
+#Key eacute      A SC4 MoveAndGoToDesk 0 1
+Key Left        A 4  Move w-5 w0 Warp
+Key Right       A 4  Move w+5 w0 Warp
+Key Up          A 4  Move w0 w-5 Warp
+Key Down        A 4  Move w0 w+5 Warp
+#Key Left        A S4 Resize w-5 keep Warp
+#Key Right       A S4 Resize w+5 keep Warp
+#Key Up          A S4 Resize keep w-5 Warp
+#Key Down        A S4 Resize keep w+5 Warp
+
+Key Return      A 4   Exec exec $[myterm]
+#Key n           A 4   Exec exec nautilus --no-desktop
+#Key g           A 4   Exec exec gthumb
+Key q           A 4  Exec exec gmrun
+
+#Key Print       A N   Exec exec import -window root \
+#                                $[HOME]/images/screenshots/root.png
+#Key Print       W 4   Exec exec import -window $[w.id] \
+#                              $[HOME]/images/screenshots/$[w.id].png
+Key Print       A N   Exec exec scrot -q0 "$[HOME]/Images/screenshots/root.png"
+
+Key XF86AudioLowerVolume        A A Exec exec amixer set Master 10%- > /dev/null
+Key XF86AudioRaiseVolume        A A Exec exec amixer set Master 10%+ > /dev/null
+Key XF86AudioMute               A A Exec exec amixer set Master toggle > /dev/null
+#Key XF86AudioPlay               A A Exec exec dcop amarok player playPause
+#Key XF86AudioPrev               A A Exec exec dcop amarok player prev
+#Key XF86AudioNext               A A Exec exec dcop amarok player next
+#Key XF86AudioStop               A A Exec exec dcop amarok player stop
+

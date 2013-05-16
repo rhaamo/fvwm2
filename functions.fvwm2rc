@@ -1,0 +1,210 @@
+####
+# Functions
+####################
+
+DestroyFunc StartFunction
+AddToFunc StartFunction
++ I Exec fbsetroot -solid black
++ I Exec sh ~/.fehbg
++ I Module FvwmEvent
++ I Module FvwmAnimate
++ I Module FvwmButtons Panel
++ I PipeRead 'echo Module FvwmPager 0 $$(($[fvwm_numdesk]-1))'
+
+
++ I Test (Restart) All (Iconic) Test (f $[fvwm_temp]/icon.tmp.$[w.id].png) \
+    WindowStyle IconOverride, Icon $[fvwm_temp]/icon.tmp.$[w.id].png
+
++ I Test (Quit) Exec rm $[fvwm_temp]/icon.tmp.*
+
++ I Test (Init) Exec exec xscreensaver -nosplash
+#+ I Test (Init) Exec exec /usr/libexec/gnome-settings-daemon
++ I Test (Init) Exec exec conky
+#+ I Test (Init) Exec exec $[fvwm_scripts]/start-xcompmgr.sh
++ I Test (Init) Exec exec stalonetray
+#+ I Test (Init) Exec exec xfce4-panel
+#+ I Test (Init) Exec exec gnome-power-manager
+
+
+
+
+DestroyFunc NewWindowFunc
+AddToFunc NewWindowFunc
+# Amarok
++ I ThisWindow (Amarokapp) Maximize true
+
+
+
+
+DestroyFunc IconifyOrMoveFunc
+AddToFunc IconifyOrMoveFunc
++ I Raise
++ D Thumbnail
++ M Move
+
+DestroyFunc CloseFunc
+AddToFunc CloseFunc
++ I Raise
++ C Close
++ M Nop
+
+DestroyFunc MaximizeFunc
+AddToFunc MaximizeFunc
++ I Raise
++ C Maximize
++ M Nop
+
+DestroyFunc HoriMaximizeFunc
+AddToFunc HoriMaximizeFunc
++ I Raise
++ C Maximize False
++ C Maximize True 100 0
++ M Nop
+
+DestroyFunc VertMaximizeFunc
+AddToFunc VertMaximizeFunc
++ I Raise
++ C Maximize False
++ C Maximize True 0 100
++ M Nop
+
+DestroyFunc IconifyFunc
+AddToFunc IconifyFunc
++ I Raise
++ C Iconify
++ M Nop
+
+DestroyFunc ThumbnailFunc
+AddToFunc ThumbnailFunc
++ I Raise
++ C Thumbnail
++ M Nop
+
+DestroyFunc IconFunc
+AddToFunc IconFunc
++ I Raise
++ C DeiconifyAndRearrange
++ D DeiconifyAndRearrange
++ M Move
+
+DestroyFunc DeiconifyAndRearrange
+AddToFunc DeiconifyAndRearrange
++ I DeThumbnail
++ I All (CurrentPage, Iconic) PlaceAgain Anim Icon
+
+DestroyFunc StickFunc
+AddToFunc StickFunc
++ I Raise
++ C Stick
++ M Nop
+
+DestroyFunc OnTopFunc
+AddToFunc OnTopFunc
++ C ThisWindow (Layer 2) Layer default
++ C TestRc (Nomatch) Layer 0 6
++ C Raise
++ I Raise
++ M Nop
+
+DestroyFunc OnBottomFunc
+AddToFunc OnBottomFunc
++ C ThisWindow (Layer 6) Layer default
++ C TestRc (Nomatch) Layer 0 2
++ C Raise
++ I Raise
++ M Nop
+
+DestroyFunc MoveFunc
+AddToFunc MoveFunc
++ I Raise
++ C Nop
++ M Move
+
+DestroyFunc ResizeFunc
+AddToFunc ResizeFunc
++ I Raise
++ C Menu WindowMenu
++ M Resize direction SE warptoborder
+
+DestroyFunc CenterWindow
+AddToFunc   CenterWindow
++ I ThisWindow Piperead 'echo AnimatedMove \
+      $$(( $[vp.width]/2-$[w.width]/2 ))p \
+      $$(( $[vp.height]/2-$[w.height]/2 ))p'
+
+DestroyFunc MoveAndGoToPage
+AddToFunc MoveAndGoToPage
++ I MoveToPage $*
++ I GotoPage $*
++ I WarpToWindow 50 50
++ I Raise
++ I Focus
+
+DestroyFunc MoveAndGoToDesk
+AddToFunc MoveAndGoToDesk
++ I MoveToDesk $*
++ I GotoDesk $*
++ I WarpToWindow 50 50
++ I Raise
++ I Focus
+
+DestroyFunc ToggleTitle
+AddToFunc ToggleTitle
++ I ThisWindow (State 1) WindowStyle !Title
++ I TestRc (Match) State 1 False
++ I TestRc (NoMatch) WindowStyle Title
++ I TestRc (NoMatch) State 1 True
+
+DestroyFunc ToggleBorders
+AddToFunc ToggleBorders
++ I ThisWindow (State 2) WindowStyle !Borders
++ I TestRc (Match) State 2 False
++ I TestRc (NoMatch) WindowStyle Borders
++ I TestRc (NoMatch) State 2 True
+
+
+
+
+DestroyFunc WindowListFunc
+AddToFunc WindowListFunc
++ I Iconify off
++ I FlipFocus
++ I Raise
++ I WindowShade False
++ I WarpToWindow 50 50
+
+DestroyFunc UrgencyFunc
+
+
+
+
+DestroyFunc Thumbnail
+AddToFunc Thumbnail
++ I Raise
++ I ThisWindow (!Iconic) SetEnv Icon-$[w.id] $[w.iconfile]
++ I ThisWindow (!Shaded, Iconifiable, !Iconic) PipeRead \
+      '$[fvwm_scripts]/thumb $[w.id] 128 \
+      $[fvwm_temp]/icon.tmp.$[w.id].png $[w.miniiconfile]'
++ I Iconify
+
+DestroyFunc DeThumbnail
+AddToFunc DeThumbnail
++ I Test (i $[Icon-$[w.id]]) WindowStyle Icon $[Icon-$[w.id]]
++ I TestRc (NoMatch) WindowStyle NoIconOverride
++ I Exec rm -f $[fvwm_temp]/icon.tmp.$[w.id].png
++ I All (Iconic, CurrentPage) PlaceAgain Anim Icon
++ I UnsetEnv Icon-$[w.id]
++ I Iconify off
+
+
+
+
+DestroyFunc ChangeTheme
+AddToFunc ChangeTheme
++ I SetEnv fvwm_current_theme '$[fvwm_themes]/$0/'
++ I Read '$[fvwm_current_theme]/theme.fvwm2rc' quiet
+# In order to reapply windows specific styles
++ I Read $./styles.fvwm2rc
++ I UpdateStyles
++ I Exec echo $0 > '$[FVWM_USERDIR]/current_theme'
+

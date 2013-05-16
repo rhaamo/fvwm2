@@ -1,0 +1,43 @@
+####
+# Panel
+####################
+
+DestroyModuleConfig Panel: *
+*Panel: ButtonGeometry 1x1+0-0
+*Panel: Rows 20
+*Panel: Columns $[vp.width]
+*Panel: Frame 0
+*Panel: Padding 0 0
+*Panel: Colorset 50
+*Panel: BoxSize Fixed
+*Panel: Font "StringEncoding=UTF-8:xft:DejaVu Sans:pixelsize=11:style=Book:rgba=rgb:minspace=true:antialias=True"
+PipeRead 'echo "*Panel: ($$(($[vp.width]-200))x20, Swallow FvwmIconMan \\"Module FvwmIconMan PanelIconMan\\")"'
+*Panel: (200x20, Swallow "FvwmScript" 'FvwmScript $[fvwm_scripts]/PanelTimeScript')
+
+DestroyModuleConfig PanelIconMan: *
+*PanelIconMan: ButtonGeometry 200x20
+*PanelIconMan: ManagerGeometry 1x1
+*PanelIconMan: Font "StringEncoding=UTF-8:xft:DejaVu Sans:pixelsize=11:style=Book:rgba=rgb:minspace=true:antialias=True"
+*PanelIconMan: Colorset 50
+*PanelIconMan: FocusAndSelectColorset 50
+*PanelIconMan: FocusColorset 50
+*PanelIconMan: IconColorset 51
+*PanelIconMan: SelectColorset 50
+*PanelIconMan: PlainColorset 51
+*PanelIconMan: FollowFocus True
+*PanelIconMan: DrawIcons Always
+*PanelIconMan: ReliefThickness 0
+*PanelIconMan: Resolution page
+*PanelIconMan: Sort id
+*PanelIconMan: Format "%t"
+*PanelIconMan: Title ""
+*PanelIconMan: UseWinList True
+*PanelIconMan: ShowTransient True
+*PanelIconMan: NoIconAction "SendToModule FvwmAnimate animate"
+*PanelIconMan: Action Mouse 1 N SendCommand "ThisWindow (Iconic) Iconify off", \
+                 SendCommand Raise, SendCommand Focus
+*PanelIconMan: Action Mouse 2 N SendCommand "ThisWindow (!Iconic) Thumbnail"
+*PanelIconMan: Action Mouse 3 N SendCommand "Popup WindowMenu Rectangle +$left+$top 0 -100m"
+*PanelIconMan: Action Mouse 4 N SendCommand "ThisWindow Raise"
+*PanelIconMan: Action Mouse 5 N SendCommand "ThisWindow Lower"
+

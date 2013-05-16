@@ -1,0 +1,292 @@
+####
+# Menus
+####################
+
+####
+# Light menu
+####################
+
+DestroyMenu Light
+AddToMenu Light
++ "%beastie.png%Fvwm $[version.num]"	Title
++ "%terminal.png%Terminal"		Exec exec $[myterm]
++ "%firefox.png%Mozilla Firefox"	Exec exec firefox
++ "%emacs.png%Emacs"			Exec exec emacs
++ ""					Nop
++ "%runprog.png%Run ..."                Exec exec gmrun
++ ""					Nop
++ "%terminal.png%Fvwm Console"		Module FvwmConsole -terminal $[myterm]
++ "%lock.png%Lock screen"	        Exec exec xscreensaver-command -lock
++ "%reload.png%Restart Fvwm"		Restart
++ "%logout.png%Quit Fvwm"		Quit
+
+####
+# Main menu
+####################
+
+DestroyMenu Main
+AddToMenu Main
++ "%beastie.png%Fvwm $[version.num]"	Title
++ "%terminal.png%Terminal"		Exec exec $[myterm]
++ "%nautilus.png%Nautilus"		Exec exec thunar
++ "%terminal.png%SSH"		        Popup SSH
++ "%gnome-globe.png%Internet"		Popup Internet
++ "%gnome-multimedia.png%Multimedia"	Popup Multimedia
++ "%gnome-graphics.png%Graphic"	        Popup Graphic
++ "%gnome-office.png%Office"		Popup Office
++ "%gnome-devel.png%Programmation"	Popup Prog
++ "%gnome-utils.png%Tools"		Popup Tools
++ "%gnome-system.png%System"		Popup System
++ "%terminal.png%Terms"	        	Popup Terms
++ "%gnome-games.png%Games"		Popup Games
++ ""					Nop
++ "%beastie.png%Fvwm menu"		Popup FvwmMenu
+
+DestroyMenu SSH
+AddToMenu SSH
++ DynamicPopupAction SSHGenHosts
+
+AddToFunc SSHGenHosts
++ I DestroyMenu recreate SSH
++ I AddToMenu SSH
++ I PipeRead '$[fvwm_scripts]/gensshhosts.sh'
+
+DestroyMenu Internet
+AddToMenu Internet
++ "%firefox.png%Mozilla Firefox"	Exec exec firefox
++ "%thunderbird.png%Mutt" Exec exec $[mytermexec] mutt
+#+ "%opera.png%Opera"			Exec exec aoss opera
+#+ "%epiphany.png%Epiphany"		Exec exec aoss epiphany
+#+ "%jabber.png%Psi"			Exec exec psi
++ "%jabber.png%Gajim"			Exec exec gajim
+#+ "%gaim.png%Gaim"			Exec exec gaim
+#+ "%msn.png%aMSN"			Exec exec amsn
+#+ "%msn.png%Mercury"			Exec exec mercury &>/dev/null
+#+ "%xchat.png%XChat"			Exec exec xchat-2
+#+ "%gftp.png%gFTP"			Exec exec gftp
+#+ "%amule.png%aMule"			Exec exec amule
+#+ "%azureus.png%Azureus"		Exec exec azureus
+#+ "%ekiga.png%Ekiga"                    Exec exec ekiga
+#+ "%twinkle.png%Twinkle"                Exec exec twinkle
+
+DestroyMenu Multimedia
+AddToMenu Multimedia
++ "%amarok.png%Amarok"			Exec exec clementine
++ "%audacious.png%ncmpcpp"		Exec exec $[mytermexec] ncmpcpp
+#+ "%grip.png%Grip"			Exec exec grip
++ "%vlc.png%VLC"			Exec exec vlc
+#+ "%video.png%Xine"			Exec exec xine
+#+ "%video.png%OGMRip"			Exec exec ogmrip
+#+ "%gnome-volume-control.png%Alsa Mixer" Exec exec $[myterm] -title Alsamixer -e alsamixer
+#+ "%gnome-volume-control.png%GTK+ Alsa Mixer" Exec exec gnome-alsamixer
+#+ "%audacity.png%Audacity"		Exec exec aoss audacity
+#+ "%tagtool.png%TagTool"		Exec exec tagtool
++ "%easytag.png%EasyTag"		Exec exec easytag
+
+DestroyMenu Graphic
+AddToMenu Graphic
++ "%gimp.png%The Gimp"			Exec exec gimp
++ "%inkscape.png%Inkscape"		Exec exec inkscape
++ "%gthumb.png%gThumb"			Exec exec gthumb
+#+ "%xsane.png%XSane"			Exec exec xsane
++ "%blender.png%Blender"		Exec exec optirun ~/blender-latest/blender
++ "%digikam.png%Digikam"                Exec exec digikam
+
+DestroyMenu Office
+AddToMenu Office
++ "%ooo-draw2.png%Calligra Flow"	Exec exec calligraflow
++ "%ooo-impress2.png%Calligra Stage" Exec exec calligrastage
++ "%ooo-math2.png%Calligra Sheets"	Exec exec calligrasheets
++ "%ooo-writer2.png%Calligra Words"  Exec exec calligrawords
++ "%evince.png%Evince"	                Exec exec evince
+#+ "%okular.png%Okular"                  Exec exec ocular
+
+DestroyMenu Prog
+AddToMenu Prog
++ "%gvim.png%VIM"			Exec exec $[mytermexec] vim
++ "%gvim.png%gVIM"			Exec exec gvim
+#+ "%eric.png%Eric4"                     Exec exec eric4
+#+ "%cream.png%Cream"			Exec exec cream
+#+ "%anjuta.png%Anjuta"			Exec exec anjuta
+#+ "%glade-2.png%Glade 2"		Exec exec glade-2
+#+ "%glade.png%Glade 3"	        	Exec exec glade-3
+#+ "%umbrello.png%Umbrello"	        Exec exec umbrello
+
+DestroyMenu Tools
+AddToMenu Tools
++ "%gcalctool.png%Calculator"		Exec exec gcalctool
+#+ "%graveman.png%Graveman"	        Exec exec graveman
+#+ "%k3b.png%K3b"	                Exec exec k3b
+
+DestroyMenu System
+AddToMenu System
++ "%gkrellm2.png%Conky"			Exec exec conky
+#+ "%gkrellm2.png%GKrellM"		Exec exec gkrellm2
+#+ "%hwbrowser.png%Device Manager"	Exec exec gnome-device-manager
+#+ "%hwbrowser.png%Lshw"	        Exec exec sudo gtk-lshw
+
+DestroyMenu Games
+AddToMenu Games
++ "%frozen-bubble.png%Frozen Bubble"    Exec exec frozen-bubble
+#+ "%blobwars.png%Blob Wars : Metal Blob Solid" 	Exec exec blobwars
++ "%gtetrinet.png%GTetrinet"		Exec exec gtetrinet
+#+ "%descent.png%Descent"		Exec exec d1x-rebirth -window
+#+ "%cedega.png%Cedega"	        	Exec exec cedega
+
+DestroyMenu Terms
+AddToMenu Terms
++ "%terminal.png%Rxvt Unicode"		Exec exec urxvt
++ "%terminal.png%XTerm" 		Exec exec xterm
+#+ "%terminal.png%Gnome Terminal"	Exec exec gnome-terminal
++ "%terminal.png%Terminator"            Exec exec terminator
+
+DestroyMenu FvwmMenu
+AddToMenu FvwmMenu
++ "%gnome-settings.png%Settings"	Popup Settings
++ "%runprog.png%Run ..."		Exec exec gmrun
++ "%terminal.png%Fvwm Console"		Module FvwmConsole -terminal $[myterm]
++ "%lock.png%Lock screen"	        Exec exec xscreensaver-command -lock
++ "%reload.png%Restart Fvwm"		Restart
++ "%logout.png%Quit Fvwm"		Quit
+
+# MissingSubmenuFunction permet d'appeller une fonction qui créera les menus
+# manquants
+DestroyMenu Settings
+AddToMenu Settings
++ MissingSubmenuFunction WallpaperBrowser
++ "%gnome-wallpaper.png%Wallpapers"	Popup $[wallpapers_dir]
++ "%appearance.png%Themes"		Popup ChangeThemeMenu
++ "%runprog.png%Animate"		Popup MenuFvwmAnimate
+#+ "%appearance.png%GTK+ themes"	Exec exec gnome-theme-manager
+#+ "%fonts.png%GTK+ fonts"		Exec exec gnome-font-properties
++ "%gconf-editor.png%GConf editor"	Exec exec gconf-editor
+#+ "%appearance.png%KDE configuration"   Exec exec kcontrol
++ "%kscreensaver.png%Screensaver"	Exec exec xscreensaver-demo
+
+
+# Sélecteur de wallpaper
+DestroyFunc WallpaperBrowser
+AddToFunc WallpaperBrowser
++ I PipeRead '$[fvwm_scripts]/wallpaperbrowser.sh \'$0\''
+
+
+DestroyMenu ChangeThemeMenu
+AddToMenu ChangeThemeMenu
++ DynamicPopupAction ChangeThemeFunc
+
+DestroyFunc ChangeThemeFunc
+AddToFunc ChangeThemeFunc
++ I DestroyMenu recreate ChangeThemeMenu
++ I AddToMenu ChangeThemeMenu
++ I PipeRead '$[fvwm_scripts]/changetheme.sh $[fvwm_themes]'
+
+
+
+####
+# Windows contextual menu
+####################
+DestroyMenu WindowMenu
+AddToMenu WindowMenu
++ DynamicPopupAction Function BuildWindowMenu
+
+DestroyFunc BuildWindowMenu
+AddToFunc BuildWindowMenu
++ I DestroyMenu recreate WindowMenu
++ I AddToMenu WindowMenu
++ I ThisWindow (!Iconic, !Shaded) + "Shade"                     Pick WindowShade on
++ I TestRc (NoMatch) ThisWindow (!Iconic) + "Shade off"         Pick WindowShade off
++ I ThisWindow (!Iconic, Iconifiable) + "Iconify"               Pick Thumbnail
++ I TestRc (Error) ThisWindow (Iconifiable) + "Iconify"         Pick Thumbnail
++ I TestRc (Nomatch) ThisWindow (Iconifiable) + "Deiconify"     Pick DeiconifyAndRearrange
++ I ThisWindow (!Maximized, Maximizable, !Iconic) + "Maximize"  Pick Maximize on
++ I TestRc (Error) + "Maximize"                                 Pick Maximize on
++ I TestRc (NoMatch) ThisWindow (Maximizable, !Iconic) + "Restore" Pick Maximize off
++ I ThisWindow (!Iconic) + "Center window"                      Pick CenterWindow
++ I + "Move"                                                    Pick Move
++ I ThisWindow (!Iconic) + "Resize"                             Pick Resize Direction SE warptoborder fixeddirection
++ I + "Decorations"	        	                        Popup DecoMenu
++ I + "Layer"	        	                                Popup LayerMenu
++ I + "Stick"          	                                        Popup StickMenu
++ I + "Page ..."	                                        Popup SendToPage
++ I + "Desk ..."	                                        Popup SendToDesk
++ I + "Infos"	                 	                        Pick Module FvwmIdent
++ I + "" 				                        Nop
++ I + "Close"   		                                Pick Close
+#+ I + "Destroy"			                        Pick Destroy
+
+
+
+
+DestroyMenu DecoMenu
+AddToMenu DecoMenu
++ DynamicPopupAction Function BuildDecoMenu
+
+DestroyFunc BuildDecoMenu
+AddToFunc BuildDecoMenu
++ I DestroyMenu recreate DecoMenu
++ I AddToMenu DecoMenu
++ I ThisWindow (State 1) + "No title"  Pick ToggleTitle
++ I TestRc (NoMatch) + "Title"  Pick ToggleTitle
++ I ThisWindow (State 2) + "No borders"  Pick ToggleBorders
++ I TestRc (NoMatch) + "Borders"  Pick ToggleBorders
+
+
+
+
+
+DestroyMenu StickMenu
+AddToMenu StickMenu
++ DynamicPopupAction Function BuildStickMenu
+
+DestroyFunc BuildStickMenu
+AddToFunc BuildStickMenu
++ I DestroyMenu recreate StickMenu
++ I AddToMenu StickMenu
++ I ThisWindow (StickyAcrossPages) + "Stick off" Stick off
++ I TestRc (NoMatch) ThisWindow (StickyAcrossDesks) + "Stick off" Stick off
++ I ThisWindow (!StickyAcrossPages) + "Stick on" Stick on
++ I TestRc (NoMatch) ThisWindow (!StickyAcrossDesks) + "Stick on" Stick on
++ I ThisWindow (StickyAcrossPages) + "Stick across pages off" StickAcrossPages off
++ I ThisWindow (!StickyAcrossPages) + "Stick across pages on" StickAcrossPages on
++ I ThisWindow (StickyAcrossDesks) + "Stick across desk off" StickAcrossDesks off
++ I ThisWindow (!StickyAcrossDesks) + "Stick across desk on" StickAcrossDesks on
+
+
+
+
+DestroyMenu LayerMenu
+AddToMenu LayerMenu
++ DynamicPopupAction Function BuildLayerMenu
+
+DestroyFunc BuildLayerMenu
+AddToFunc BuildLayerMenu
++ I DestroyMenu recreate LayerMenu
++ I AddToMenu LayerMenu
++ I PipeRead '$[fvwm_scripts]/buildlayer.sh 1 7 $[w.layer]'
+
+
+
+
+DestroyMenu SendToDesk
+AddToMenu SendToDesk
++ DynamicPopupAction Function BuildSendToDesk
+
+DestroyFunc BuildSendToDesk
+AddToFunc BuildSendToDesk
++ I DestroyMenu recreate SendToDesk
++ I AddToMenu SendToDesk
++ I PipeRead '$[fvwm_scripts]/sendtodesk.sh $[fvwm_numdesk] $[desk.n]'
+
+
+
+
+DestroyMenu SendToPage
+AddToMenu SendTopage
++ DynamicPopupAction Function BuildSendToPage
+
+DestroyFunc BuildSendToPage
+AddToFunc BuildSendToPage
++ I DestroyMenu recreate SendToPage
++ I AddToMenu SendToPage
++ I PipeRead '$[fvwm_scripts]/sendtopage.sh $[desk.pagesx] $[desk.pagesy] $[page.nx] $[page.ny]'
+

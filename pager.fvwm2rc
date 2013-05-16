@@ -1,0 +1,18 @@
+DestroyModuleConfig FvwmPager: *
+*FvwmPager: Colorset * 30
+*FvwmPager: HilightColorset * 31
+*FvwmPager: WindowColorsets 32 33
+*FvwmPager: BalloonColorset * 34
+*FvwmPager: Font None
+*FvwmPager: SmallFont none
+*FvwmPager: UseSkipList
+*FvwmPager: Balloons All
+*FvwmPager: BalloonFont "StringEncoding=UTF-8:xft:DejaVu Sans:pixelsize=10:style=Book:rgba=rgb:minspace=true:antialias=True"
+*FvwmPager: BalloonYOffset +2
+*FvwmPager: BalloonBorderWidth 1
+*FvwmPager: MoveThreshold 0
+#*FvwmPager: NoSeparators
+*FvwmPager: Columns 1
+*FvwmPager: Geometry -8+25
+*FvwmPager: DeskTopScale 32
+

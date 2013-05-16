@@ -1,0 +1,11 @@
+PROG=	thumb
+SRCS=	thumb.c
+MAN=
+NO_OBJ=	YES
+
+CFLAGS+=	`imlib2-config --cflags`
+LDFLAGS+=	`imlib2-config --libs`
+
+BINDIR?=	../scripts/
+
+.include <bsd.prog.mk>

@@ -1,0 +1,67 @@
+####
+# Windows specific styles
+####################
+
+Style "Alsamixer" EWMHMiniIconOverride, MiniIcon gnome-volume-control.png, NoTitle, !State 1, !Borders, !State 2
+Style Amsn EWMHMiniIconOverride, MiniIcon msn.png
+Style aMule EWMHMiniIconOverride, MiniIcon amule.png
+Style Anjuta EWMHMiniIconOverride, MiniIcon anjuta.png
+Style Audacious EWMHMiniIconOverride, MiniIcon audacious.png
+Style "Audacity" EWMHMiniIconOverride, MiniIcon audacity.png
+Style Blender EWMHMiniIconOverride, MiniIcon blender.png
+Style blobwars EWMHMiniIconOverride, MiniIcon blobwars.png
+Style Cedega EWMHMiniIconOverride, MiniIcon cedega.png
+Style Chatwindow EWMHMiniIconOverride, MiniIcon msn.png
+Style com-dMSN-Main EWMHMiniIconOverride, MiniIcon msn.png
+Style conky WindowListSkip
+Style d1x-rebirth.bin EWMHMiniIconOverride, MiniIcon descent.png
+Style Easytag EWMHMiniIconOverride, MiniIcon easytag.png
+Style easytag EWMHMiniIconOverride, MiniIcon easytag.png
+Style Epiphany EWMHMiniIconOverride, MiniIcon epiphany.png
+Style Evince EWMHMiniIconOverride, MiniIcon evince.png
+Style Firefox-bin EWMHMiniIconOverride, MiniIcon firefox.png
+Style "Frozen-Bubble 2" EWMHMiniIconOverride, MiniIcon frozen-bubble.png
+Style FvwmIdent EWMHMiniIconOverride, MiniIcon info.png
+Style Gaim EWMHMiniIconOverride, MiniIcon gaim.png
+Style Gajim.py EWMHMiniIconOverride, MiniIcon jabber.png
+Style Gcalctool EWMHMiniIconOverride, MiniIcon gcalctool.png
+Style Gconf-editor EWMHMiniIconOverride, MiniIcon gconf-editor.png
+Style gFTP EWMHMiniIconOverride, MiniIcon gftp.png
+Style Gimp EWMHMiniIconOverride, MiniIcon gimp.png
+Style Gkrellm2 EWMHMiniIconOverride, MiniIcon gkrellm2.png, WindowListSkip
+Style Glade-3 EWMHMiniIconOverride, MiniIcon glade.png
+Style Gnome-alsamixer EWMHMiniIconOverride, MiniIcon gnome-volume-control.png
+Style Gnome-terminal EWMHMiniIconOverride, MiniIcon terminal.png, !Title, !State 1, !Borders, !State 2, CenterPlacement
+Style Graveman EWMHMiniIconOverride, MiniIcon graveman.png
+Style Grip EWMHMiniIconOverride, MiniIcon grip.png
+Style Gtetrinet EWMHMiniIconOverride, MiniIcon gtetrinet.png
+Style Gthumb EWMHMiniIconOverride, MiniIcon gthumb.png
+Style Gvim EWMHMiniIconOverride, MiniIcon gvim.png
+Style Hal-device-manager EWMHMiniIconOverride, MiniIcon hwbrowser.png
+Style Inkscape EWMHMiniIconOverride, MiniIcon inkscape.png
+Style K3b EWMHMiniIconOverride, MiniIcon k3b.png
+Style MPlayer EWMHMiniIconOverride, MiniIcon video.png, StaysOnTop, !Title, !State 1, !Borders, !State 2
+Style Nautilus EWMHMiniIconOverride, MiniIcon nautilus.png
+Style Opera EWMHMiniIconOverride, MiniIcon opera.png
+Style Pan EWMHMiniIconOverride, MiniIcon pan.png
+Style Point2Play_gui.py EWMHMiniIconOverride, MiniIcon cedega.png
+Style psi EWMHMiniIconOverride, MiniIcon jabber.png, StartsOnPage 0 2 1, SKipMapping
+Style SWT EWMHMiniIconOverride, MiniIcon azureus.png
+Style Tagtool EWMHMiniIconOverride, MiniIcon tagtool.png
+Style Thunderbird-bin EWMHMiniIconOverride, MiniIcon thunderbird.png
+Style Umbrello EWMHMiniIconOverride, MiniIcon umbrello.png
+Style URxvt EWMHMiniIconOverride, MiniIcon terminal.png, Title, !State 1, !Borders, !State 2, CenterPlacement
+Style Wine EWMHMiniIconOverride, MiniIcon wine.png
+Style Xchat-2 EWMHMiniIconOverride, MiniIcon xchat.png
+Style xine EWMHMiniIconOverride, MiniIcon video.png
+Style Xsane EWMHMiniIconOverride, MiniIcon xsane.png
+Style Xscreensaver-demo EWMHMiniIconOverride, MiniIcon kscreensaver.png
+Style XTerm EWMHMiniIconOverride, MiniIcon terminal.png, !Title, !State 1, !Borders, !State 2, CenterPlacement
+
+Style Panel Sticky, !Title, WindowListSkip, StaysOnTop, \
+      FixedSize, NeverFocus, !Handles, !Borders, FixedPosition, \
+      !RoundedCorners
+Style FvwmPager Sticky, !Title, WindowListSkip, StaysOnBottom, \
+      FixedSize, NeverFocus, !Handles, !Borders, FixedPosition, \
+      !RoundedCorners
+

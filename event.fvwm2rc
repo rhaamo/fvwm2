@@ -1,0 +1,11 @@
+####
+# FvwmEvent
+####################
+
+DestroyModuleConfig FvwmEvent: *
+*FvwmEvent: Cmd Function
+*FvwmEvent: PassId
+#*FvwmEvent: new_desk ChangeDeskFunc
+*FvwmEvent: deiconify DeThumbnail
+*FvwmEvent: add_window NewWindowFunc
+

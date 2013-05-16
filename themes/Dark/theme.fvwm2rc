@@ -1,0 +1,61 @@
+####
+# Theme White
+# Last modified : 2006-10-30
+####################
+
+###
+# Colorsets
+####################
+
+# Menu
+Colorset 0 fg white, bg black, Translucent black 80
+Colorset 1 fg black, bg white
+
+# Windows & icons
+Colorset 10 fg #808080, bg black, hi black, sh #222222, IconAlpha 60
+Colorset 11 fg white, bg black, hi black, sh #222222, IconAlpha 100
+#Colorset 12 fg #808080, bg white, Transparent, Tint white 80
+#Colorset 13 fg black, bg white, Transparent, Tint white 80
+
+# Titlebar & border
+Colorset 20 fg white, bg black
+
+# FvwmPager
+Colorset 30 fg black, bg white, RootTransparent, Tint #888888 20
+Colorset 31 fg black, bg white, RootTransparent, Tint #888888 60
+Colorset 32 fg black, bg white, VGradient 200 #dddddd white
+Colorset 33 fg black, bg white, VGradient 200 #eeeeee white
+Colorset 34 fg black, bg white, VGradient 200 #eeeeee white
+
+# FvwmIdent & FvwmProxy
+Colorset 40 fg white, bg black
+Colorset 41 fg white, bg black, RootTransparent, Tint black 80
+
+# Panel & PanelIconMan
+Colorset 50 fg white, bg Dark, Pixmap Dark/panel.png
+Colorset 51 fg #808080, bg Dark, Pixmap Dark/panel.png
+
+###
+# Windows styles
+####################
+
+DestroyDecor recreate Dark
+AddToDecor Dark
++ TitleStyle Centered Height 16 ButtonWidth 20
+
++ TitleStyle AllActive MultiPixmap Main Dark/main.png, LeftButtons Dark/buttons.png, RightButtons Dark/buttons.png -- flat
++ TitleStyle AllInactive MultiPixmap Main Dark/main.png, LeftButtons Dark/buttons.png, RightButtons Dark/buttons.png -- flat
+
++ ButtonStyle 1 Active (Pixmap Dark/winmenu.png) ActiveDown (Pixmap Dark/winmenup.png) Inactive (Simple) - Clear
++ ButtonStyle 2 Active (Pixmap Dark/close.png) ActiveDown (Pixmap Dark/closep.png) Inactive (Simple) - Clear
++ ButtonStyle 3 Active (Pixmap Dark/ontop.png) ActiveDown (Pixmap Dark/ontopp.png) Inactive (Simple) - Clear
++ ButtonStyle 4 Active (Pixmap Dark/max.png) ActiveDown (Pixmap Dark/maxp.png) Inactive (Simple) - Clear
++ ButtonStyle 5 Active (Pixmap Dark/onbottom.png) ActiveDown (Pixmap Dark/onbottomp.png) Inactive (Simple) - Clear
++ ButtonStyle 6 Active (Pixmap Dark/min.png) ActiveDown (Pixmap Dark/minp.png) Inactive (Simple) - Clear
+
++ ButtonStyle All -- Flat UseTitleStyle
+
++ BorderStyle Simple, Colorset 20 -- Flat HiddenHandles NoInset
+
+Style * UseDecor Dark
+

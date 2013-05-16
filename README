@@ -1,0 +1,11 @@
+By rhaamo <rhaamo@sigpipe.me>
+
+git clone git://github.com/rhaamo/fvwm2.git ~/.fvwm2
+cd ~/.fvwm2
+cd thumb
+make -f GNUMakefile
+OR
+gmake
+cp thumb ../scripts/
+
+Enjoy!
