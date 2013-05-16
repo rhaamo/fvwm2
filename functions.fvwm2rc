@@ -24,6 +24,7 @@ AddToFunc StartFunction
 + I Test (Init) Exec exec stalonetray
 #+ I Test (Init) Exec exec xfce4-panel
 #+ I Test (Init) Exec exec gnome-power-manager
++ I Test (Init) Exec exec wicd-gtk --tray
 
 
 

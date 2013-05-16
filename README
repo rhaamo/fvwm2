@@ -1,5 +1,10 @@
 By rhaamo <rhaamo@sigpipe.me>
 
+Compile it from sources with patchs from https://aur.archlinux.org/packages.php?ID=54732
+Or use
+	mkdir fvwm-build ; cd fvwm-build ; ./build-fvwm2.sh
+
+
 git clone git://github.com/rhaamo/fvwm2.git ~/.fvwm2
 cd ~/.fvwm2
 cd thumb
