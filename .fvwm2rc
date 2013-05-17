@@ -1,6 +1,7 @@
 #####
 # My FVWM config (version 2.5.27 + Patchset)
-# Last modified : 2010-02-12
+# Last modified : 2013-05-16
+# By Rhaamo <rhaamo@sigpipe.me>
 ####################
 
 
@@ -24,6 +25,10 @@ SetEnv myssh '$[mytermexec] ssh'
 
 # Number of desks
 SetEnv fvwm_numdesk 2
+
+# Main Screen Size
+SetEnv mainscreen_width 1366
+SetEnv mainscreen_height 768
 
 # Themes
 SetEnv fvwm_themes $[FVWM_USERDIR]/themes/

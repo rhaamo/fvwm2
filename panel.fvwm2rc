@@ -1,17 +1,17 @@
 ####
-# Panel
-####################
+# Panel - The windows list
+##########################
 
 DestroyModuleConfig Panel: *
 *Panel: ButtonGeometry 1x1+0-0
 *Panel: Rows 20
-*Panel: Columns $[vp.width]
+*Panel: Geometry $[mainscreen_width]x20+0+748
 *Panel: Frame 0
 *Panel: Padding 0 0
 *Panel: Colorset 50
 *Panel: BoxSize Fixed
 *Panel: Font "StringEncoding=UTF-8:xft:DejaVu Sans:pixelsize=11:style=Book:rgba=rgb:minspace=true:antialias=True"
-PipeRead 'echo "*Panel: ($$(($[vp.width]-200))x20, Swallow FvwmIconMan \\"Module FvwmIconMan PanelIconMan\\")"'
+PipeRead 'echo "*Panel: ($$(($[mainscreen_width]-200))x20, Swallow FvwmIconMan \\"Module FvwmIconMan PanelIconMan\\")"'
 *Panel: (200x20, Swallow "FvwmScript" 'FvwmScript $[fvwm_scripts]/PanelTimeScript')
 
 DestroyModuleConfig PanelIconMan: *
