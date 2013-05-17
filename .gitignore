@@ -1,3 +1,5 @@
 scripts/thumb
 thumb/thumb
 thumb/thumb.o
+tmp/*
+.FvwmConsole-History

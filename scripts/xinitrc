@@ -1,0 +1,78 @@
+#!/bin/sh
+
+# Some things in french
+FRE="fr_FR.UTF-8"
+export LC_NUMERIC=$FRE
+export LC_TIME=$FRE
+export LC_COLLATE=$FRE
+export LC_MONETARY=$FRE
+export LC_PAPER=$FRE
+export LC_NAME=$FRE
+export LC_ADDRESS=$FRE
+export LC_TELEPHONE=$FRE
+export LC_MEASUREMENT=$FRE
+export LC_IDENTIFICATION=$FRE
+
+
+# OpenOffice.org look
+OOO_FORCE_DESKTOP=gnome
+export OOO_FORCE_DESKTOP
+
+# GTFO
+xset b 0
+
+# Cleaning
+export SSH_AUTH_SOCK
+export GPG_AGENT_INFO
+export GNOME_KEYRING_CONTROL
+export GNOME_KEYRING_PID
+
+# GnomeKeyring
+if which gnome-keyring-daemon >/dev/null; then
+  echo "Launching gnome-keyring-daemon..."
+  eval $(gnome-keyring-daemon --start --components=gpg,pkcs11,secrets,ssh)
+fi
+
+# D-Bus
+if [ -z "$DBUS_SESSION_BUS_ADDRESS" ]; then
+  if which dbus-launch >/dev/null; then
+    echo 'Launching D-BUS per-session daemon...'
+    eval `dbus-launch --sh-syntax --exit-with-session` || echo "Failed to launch D-Bus session daemon"
+    echo "D-BUS per-session daemon address: ${DBUS_SESSION_BUS_ADDRESS}"
+  fi
+fi
+
+# X ressources
+if which xrdb >/dev/null; then
+  echo 'Loading X ressources...'
+  xrdb -merge ~/.Xdefaults || echo 'Failed to load X ressources'
+fi
+
+# xscreensaver
+if which xscreensaver >/dev/null; then
+  echo 'Launching xscreensaver...'
+  xscreensaver -nosplash || echo 'Failed to launch xscreensaver' &
+fi
+
+# composite
+#if which xcompmgr >/dev/null; then
+#  echo 'Launching composite manager...'
+#  xcompmgr -c -C -o0.2 -t1 -l1 -r2 >/dev/null 2>&1 || echo 'Failed to launch composite manager' &
+#fi
+
+setxkbmap us -variant intl &
+
+#/usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1 &
+
+#wicd-gtk --tray &
+
+
+# launch WM, launch the first found, by order of preference
+for wm in fvwm awesome wmii fluxbox e16 enlightenment fvwm; do
+  if which $wm >/dev/null; then
+    exec ck-launch-session $wm >~/.xsession.log 2>&1
+  fi
+  echo 'Failed to launch any prefered WM'
+done
+
+# vim:ft=sh:sw=2:
